@@ -138,11 +138,22 @@ body{
   justify-content: center;
   align-items: center;
   &__screen {
-    position: relative;
+    /*position: relative;
     width: $screen-width;
     height: $screen-height;
     background-color: gray;
-    overflow: hidden;
+    overflow: hidden;*/
+
+
+
+      position: relative;
+      width: 590px;
+      height: 420px;
+      background-color: gray;
+      overflow: hidden;
+      top: 50px;
+      left: 130px;
+      z-index: -1;
   }
 
   &__debug {

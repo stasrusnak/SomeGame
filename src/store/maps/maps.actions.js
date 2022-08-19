@@ -8,7 +8,7 @@ const passageLayer = (layers, tiles) =>
 const formatMap = (map, data) => {
   const { height, width, tileheight, layers, tileset, events } = data;
   const reducedLayers = layers.map(layer => layer.data);
-  const passage = passageLayer(reducedLayers, tileset.tiles);
+    const passage = passageLayer(reducedLayers, tileset.tiles);
   return {
     name: map,
     rows: height,

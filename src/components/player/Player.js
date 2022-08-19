@@ -1,5 +1,5 @@
 import Character from '../overworld/Overworld';
-require('@/assets/graphics/characters/zelda.png');
+require('@/assets/graphics/characters/trchar.png');
 
 const props = {
   id: {
@@ -13,7 +13,7 @@ const computed = {};
 const methods = {
   async init() {
     this.setRefs();
-    await this.loadImage('zelda.png');
+    await this.loadImage('trchar.png');
   }
 };
 

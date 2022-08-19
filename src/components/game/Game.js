@@ -105,27 +105,27 @@ const methods = {
     this.hero.draw(delta);
   },
   update(delta) {
-    /* const step = clampValue(PLAYER_SPEED * delta, TILE_SIZE); */
+    // const step = clampValue(PLAYER_SPEED * delta, TILE_SIZE);
     let dirx = 0;
     let diry = 0;
     let direction = null;
 
     if (this.isUpDown) {
-      diry = -1;
+      diry = -4;
       direction = 'up';
-      /*  this.hero.move(0, -step, 'up'); */
+     // this.hero.move(0, -step, 'up');
     } else if (this.isRightDown) {
-      dirx = 1;
+      dirx = 2;
       direction = 'right';
-      /*  this.hero.move(step, 0, 'right'); */
+     // this.hero.move(step, 0, 'right');
     } else if (this.isDownDown) {
-      diry = 1;
+      diry = 2;
       direction = 'down';
-      /* this.hero.move(0, +step, 'down'); */
+      // this.hero.move(0, +step, 'down');
     } else if (this.isLeftDown) {
-      dirx = -1;
+      dirx = -4;
       direction = 'left';
-      /*  this.hero.move(-step, 0, 'left'); */
+      // this.hero.move(-step, 0, 'left');
     }
     this.npcs.forEach(ev => ev.update(delta));
     this.updatePlayer(delta, dirx, diry, direction);
@@ -177,19 +177,6 @@ const methods = {
         const tx = (c - startCol) * tsize + offsetX;
         const ty = (r - startRow) * tsize + offsetY;
         if (tile !== 0) {
-          // 0 => empty tile
-
-          // console.log([
-          //   this.tilemap, // image
-          //   (Math.ceil(tile % 8) - 1) * tsize, // source x
-          //   (Math.ceil(tile / 8) - 1) * tsize, // source y
-          //   tsize, // source width
-          //   tsize, // source height
-          //   Math.round(tx), // target x
-          //   Math.round(ty), // target y
-          //   tsize, // target width
-          //   tsize // target height
-          // ])
           this.ctx.drawImage(
             this.tilemap, // image
             (Math.ceil(tile % 8) - 1) * tsize, // source x
