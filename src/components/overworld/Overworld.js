@@ -14,8 +14,8 @@ import {
 const data = () => ({
   ref: null,
   image: null,
-  x: 0,
-  y: 0,
+  x: 300,
+  y: 200,
   height: PLAYER_SIZE,
   width: PLAYER_SIZE,
   direction: 'down',

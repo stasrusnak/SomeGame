@@ -2,7 +2,7 @@ export const loadImage = url =>
   new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => {
-      console.log('Image Loaded', img);
+      // console.log('Image Loaded', img);
       resolve(img);
     };
     img.onerror = e => {

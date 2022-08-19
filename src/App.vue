@@ -8,11 +8,25 @@
       </div>
       <div class="app__debug">
         <span class="app__fps badge-pill badge-dark">fps: {{ fps }}</span>
-        <span
-                class="app__keys badge-pill badge-secondary"
-                v-for="key in pressedKeys"
-                :key="key"
-        >{{ key }}</span>
+<!--        <span-->
+<!--                class="app__keys badge-pill badge-secondary"-->
+<!--                v-for="key in pressedKeys"-->
+<!--                :key="key"-->
+<!--        >{{ key }}-->
+
+<!--            {{pressedKeys}}-->
+
+
+<!--        </span>-->
+
+
+          <div class="arrow-key-container">
+              <div class="arrow-key up" :class="this.press===38 ? 'press' : '' " ></div><br>
+              <div class="arrow-key left" :class="this.press===37 ? 'press' : '' "></div>
+              <div class="arrow-key down" :class="this.press===40 ? 'press' : '' " ></div>
+              <div class="arrow-key right" :class="this.press===39 ? 'press' : '' " ></div>
+          </div>
+
 
       </div>
     </div>
@@ -28,7 +42,8 @@ import Game from './components/game/Game.vue';
 const data = () => ({
   times: [],
   fps: 0,
-  isDev: false
+  isDev: false,
+  press: ''
 });
 
 const components = {
@@ -69,10 +84,12 @@ const methods = {
   onKeyDown(e) {
     e.preventDefault();
     this.$store.dispatch('keyboard/KEY_DOWN', e.keyCode);
+    this.press = e.keyCode
   },
   onKeyUp(e) {
     e.preventDefault();
     this.$store.dispatch('keyboard/KEY_UP', e.keyCode);
+    this.press = ''
   }
 };
 
@@ -86,7 +103,8 @@ export default {
   mounted() {
     this.getFps();
     this.$nextTick(this.init);
-  }
+  },
+
 };
 
 
@@ -132,7 +150,7 @@ body{
     left: 0.5rem;
     display: flex;
     justify-content: space-between;
-     width: 10%;
+     width: 30%;
     height: 50px;
     align-items: center;
     flex-direction: column;
@@ -155,6 +173,47 @@ body{
     height: 1600px;
   }
 }
+
+
+.arrow-key-container {
+  display: inline-block;
+  text-align: center;
+  transform: translate3d(0,0,0);
+}
+.arrow-key {
+  align-items: center;
+  background: #ccc;
+  border-radius: 6px;
+  box-shadow: -1px 1px 0 #999, -2px 2px 0 #999, -3px 3px 0 #999, -4px 4px 0 #999;
+  color: #fff;
+  display: inline-flex;
+  font-size: 30px;
+  font-weight: bold;
+  height: 35px;
+  justify-content: center;
+  margin: 5px;
+  transform: translate3d(0, 0, 0);
+  transition: box-shadow .1s linear, transform .1s linear;
+  width: 35px;
+  &:active,&.press {
+    box-shadow: 0px 0px 0 rgba(255, 99, 71, 0.97), 0px 0px 0 rgba(255, 99, 71, 0.97), 0px 0px 0 rgba(255, 99, 71, 0.97), -1px 1px 0 rgba(255, 99, 71, 0.97);
+    transform: translate3d(-3px, 3px, 0);
+    background: rgba(255, 99, 71, 0.97);
+  }
+  &.left:before {
+    content: "\2190";
+  }
+  &.up:before {
+    content: "\2191";
+  }
+  &.down:before {
+    content: "\2193";
+  }
+  &.right:before {
+    content: "\2192";
+  }
+}
+
 
 @media screen and (max-width: 1300px)  {
 
