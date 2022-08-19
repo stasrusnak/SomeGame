@@ -1,16 +1,23 @@
 <template>
   <div id="app" class="app">
-    <div class="app__screen" ref="game-screen">
-      <div class="app__debug">
-        <span
-          class="app__keys badge-pill badge-secondary"
-          v-for="key in pressedKeys"
-          :key="key"
-        >{{ key }}</span>
-        <span class="app__fps badge-pill badge-dark">fps: {{ fps }}</span>
+
+    <div class="tv">
+
+      <div class="app__screen" ref="game-screen">
+        <Game class="app__game"/>
       </div>
-      <Game class="app__game"/>
+      <div class="app__debug">
+        <span class="app__fps badge-pill badge-dark">fps: {{ fps }}</span>
+        <span
+                class="app__keys badge-pill badge-secondary"
+                v-for="key in pressedKeys"
+                :key="key"
+        >{{ key }}</span>
+
+      </div>
     </div>
+
+
   </div>
 </template>
 <script>
@@ -27,9 +34,6 @@ const data = () => ({
 const components = {
   Game
 };
-
-
-
 
 const props = {};
 
@@ -90,31 +94,48 @@ export default {
 <style lang="scss">
 @import './styles/shared.scss';
 
-.app {
-  width: 100vw;
-  height: 100vh;
+.tv{
+  width: 900px;
+  height: 900px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./assets/img/tv_old.png") ;
+  background-position: center center;
+  background-size: cover;
+}
 
+body{
+  background-image: url("./assets/img/bg.jpg") ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &__screen {
     position: relative;
     width: $screen-width;
     height: $screen-height;
     background-color: gray;
-    overflow: scroll;
+    overflow: hidden;
   }
 
   &__debug {
-    position: fixed;
     bottom: 0.5rem;
     left: 0.5rem;
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    padding: 0;
+     width: 10%;
     height: 50px;
     align-items: center;
+    flex-direction: column;
   }
 
   &__fps,
@@ -134,4 +155,9 @@ export default {
     height: 1600px;
   }
 }
+
+@media screen and (max-width: 1300px)  {
+
+}
+
 </style>

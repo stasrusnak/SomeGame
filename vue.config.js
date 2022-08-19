@@ -2,6 +2,18 @@ const path = require('path');
 
 module.exports = {
   lintOnSave: false,
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src") // change this to your folder path
+      }
+    }
+  }
+}
+
+
+// module.exports = {
+  // lintOnSave: false,
   // chainWebpack: config => {
   //   const inlineLimit = 10000;
   //   const assetsPath = 'src/assets';
@@ -31,5 +43,5 @@ module.exports = {
   //
   //   config.resolve.alias.set('@', path.resolve(__dirname, 'src'));
   // }
-};
+// };
 

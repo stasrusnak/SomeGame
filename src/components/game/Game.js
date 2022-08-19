@@ -178,6 +178,18 @@ const methods = {
         const ty = (r - startRow) * tsize + offsetY;
         if (tile !== 0) {
           // 0 => empty tile
+
+          // console.log([
+          //   this.tilemap, // image
+          //   (Math.ceil(tile % 8) - 1) * tsize, // source x
+          //   (Math.ceil(tile / 8) - 1) * tsize, // source y
+          //   tsize, // source width
+          //   tsize, // source height
+          //   Math.round(tx), // target x
+          //   Math.round(ty), // target y
+          //   tsize, // target width
+          //   tsize // target height
+          // ])
           this.ctx.drawImage(
             this.tilemap, // image
             (Math.ceil(tile % 8) - 1) * tsize, // source x
@@ -190,7 +202,7 @@ const methods = {
             tsize // target height
           );
           if (this.isDebugMode) {
-            this.ctx.fillText(`${c} - ${r}`, tx, ty + 10);
+            // this.ctx.fillText(`${c} - ${r}`, tx, ty + 10);
             this.ctx.fillText(tilePassage, tx, ty + 30);
           }
         }
