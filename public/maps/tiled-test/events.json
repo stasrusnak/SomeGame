@@ -1,0 +1,26 @@
+[
+  {
+    "id": "24349fe7-1865-51e1-b1a6-3edfc92c85be",
+    "type": "npc",
+    "startPosX": 10,
+    "startPosY": 10,
+    "name": "Old Alvaro",
+    "character": "old_alvaro",
+    "movement": {
+      "type": "random",
+      "speed": "slow",
+      "frequency": "normal"
+    }
+  },
+  {
+    "id": "8884455b-9ba4-5a0c-9c23-c434d91037e0",
+    "type": "npc",
+    "startPosX": 10,
+    "startPosY": 4,
+    "name": "Venasaur",
+    "character": "003",
+    "movement": {
+      "type": "fixed"
+    }
+  }
+]

@@ -1,0 +1,13 @@
+@import '../../styles/shared.scss';
+
+.player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $player-size;
+  height: $player-size;
+
+  .debug & {
+    border: 1px solid red;
+  }
+}
