@@ -124,7 +124,7 @@ export default {
 }
 
 body{
-  background-image: url("./assets/img/bg.jpg") ;
+  background-image: url("./assets/img/3237148.jpg") ;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 100vw;
@@ -157,14 +157,16 @@ body{
   }
 
   &__debug {
-    bottom: 0.5rem;
-    left: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-     width: 30%;
-    height: 50px;
-    align-items: center;
-    flex-direction: column;
+      position: relative;
+      top: 11.5rem;
+      right: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      width: 30%;
+      height: 50px;
+      align-items: center;
+      flex-direction: column;
+      margin-left: 16px;
   }
 
   &__fps,
