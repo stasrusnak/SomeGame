@@ -63,6 +63,7 @@ const computed = {
     return this.camera.y;
   },
   left() {
+
     return this.x;
   },
   right() {
